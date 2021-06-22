@@ -1,11 +1,18 @@
+#import some modules
 import webbrowser
 import pygame
 import random
 import time
 from pygame.locals import *
+
+#initialize pygame
 pygame.init()
+
+#set up the screen
 screen = pygame.display.set_mode((600,600))
-pygame.display.set_caption("Pong")
+pygame.display.set_caption("InsertTitleHere")
+
+#add some colors
 blue = (0,0,255)
 red = (255,0,0)
 green = (0,255,0)
@@ -19,20 +26,24 @@ pink = (175,0,175)
 grey = (127.5, 127.5, 127.5)
 clock = pygame.time.Clock()
 
+#define initial variables
 colors = [blue, red, green, purple, white, yellow, orange, aqua, pink]
 width = random.randint(50,100)
 height = random.randint(50,100)
 
+#returns a random color
 def randcolor():
     randomcolor = (random.randint(10,245), random.randint(10,245), random.randint(10,245))
     return randomcolor
 
+#displays text on screen
 def show_text(msg, x, y, color):
     fontobj = pygame.font.SysFont("comicsansms", 32)
     msgobj = fontobj.render(msg, False, color)
     screen.blit(msgobj,(x,y))
 
-def rekt_center(x, y, width, height):
+#finds center of rectangle
+def rect_center(x, y, width, height):
     mid_x = (x + width)/2
     mid_y = (y + height)/2
     center = (mid_x, mid_y)
@@ -56,5 +67,5 @@ while True:
             exit()
         #if conditions for keyboard and mouse movement
 
-    #update
+    #update the display
     pygame.display.update()
